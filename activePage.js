@@ -1,15 +1,14 @@
 'use strict';
 let links = document.querySelectorAll('.header__nav_link');
 
-if (window.location.pathname.indexOf('/index.html') > -1 && !window.location.hash) {
-    links[0].classList.add('current__link');
+if (window.location.hash.indexOf('#partners') > -1) {
+    links[3].classList.add('current__link');
 } else if (window.location.pathname.indexOf('/shop.html') > -1 && !window.location.hash) {
     links[2].classList.add('current__link');
 } else if (window.location.hash.indexOf('#partners') > -1) {
-    console.log('dff')
     links[1].classList.add('current__link');
 } else {
-    links[3].classList.add('current__link');
+    links[0].classList.add('current__link');
 }
 
 links[1].addEventListener('click', changeActiveLink);
