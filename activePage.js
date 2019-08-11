@@ -1,7 +1,7 @@
 'use strict';
 let links = document.querySelectorAll('.header__nav_link');
 
-if (window.location.hash.indexOf('#partners') > -1) {
+if (window.location.hash.indexOf('#map') > -1) {
     links[3].classList.add('current__link');
 } else if (window.location.pathname.indexOf('/shop.html') > -1 && !window.location.hash) {
     links[2].classList.add('current__link');
