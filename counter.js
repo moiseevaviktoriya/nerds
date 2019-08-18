@@ -20,5 +20,9 @@ function numAnimate(number) {
         if (num <= result) { 
             number.childNodes[0].textContent = num; 
         }
-    }, 10);
+        
+        if (num === result) {
+            number.classList.add('red-title');
+        }
+    }, 50);
 };
