@@ -21,19 +21,22 @@ let indicatorsList = document.querySelector('.slider__indicators');
 let slider = document.querySelector('.slider__img'),
         sliderTitle = document.querySelector('.slider__title'),
         sliderDescription = document.querySelector('.slider__description');
+        
 
 if (sliders.length !== 0) {
-        setSliderContent(0);
     for (let i = 0; i < sliders.length; i++) {
         let indicator = document.createElement('li');
         i === 0? indicator.classList.add('indicator', 'active__indicator') : indicator.classList.add('indicator');
         indicatorsList.append(indicator);
     }
+    setSliderContent(0);
 } else {
     document.querySelector('.slider').style.display = 'none';
 }
 
-let indicators = document.getElementsByClassName('slider__indicators')[0];
+let indicators = document.getElementsByClassName('slider__indicators')[0],
+    currentSlide = document.getElementsByClassName('active__indicator')[0];
+    
 
 indicators.addEventListener('click', changeSlide);
 
@@ -43,13 +46,14 @@ let indicator = document.getElementsByClassName('indicator'),
 function changeSlide(e) {
     indicatorArr.forEach(function (item, i) {
         if (item === e.target && !item.classList.contains('active__indicator')) {
-          item.classList.add('active__indicator');
           setSliderContent(i);
+          item.classList.add('active__indicator');
+          currentSlide = item;
         } else if (item !== e.target && e.target !== indicators) {
           item.classList.remove('active__indicator');  
         }
-    })
-}
+    });
+} 
 
 function setSliderContent(pos) {
     slider.src = sliders[pos].src;
@@ -59,8 +63,7 @@ function setSliderContent(pos) {
 
 let initialPoint,
     finalPoint,
-    sliderToSwipe = document.querySelector('.slider__col:nth-child(2)'),
-    currentSlide = document.getElementsByClassName('active__indicator')[0];
+    sliderToSwipe = document.querySelector('.slider__col:nth-child(2)');
 
 sliderToSwipe.addEventListener('touchstart', function(event) {
     event.preventDefault();
@@ -76,12 +79,12 @@ sliderToSwipe.addEventListener('touchend', function(event) {
     
     if (xAbs > 20) {
         if (finalPoint.pageX > initialPoint.pageX) {
-            if (currentSlide.previousSibling) {
-                changeSlideBySwipe(-1, currentSlide.previousSibling);
+            if (currentSlide.previousElementSibling) {
+                changeSlideBySwipe(-1, currentSlide.previousElementSibling);
             }
         } else {
-            if (currentSlide.nextSibling) {
-                changeSlideBySwipe(1, currentSlide.nextSibling);
+            if (currentSlide.nextElementSibling) {
+                changeSlideBySwipe(1, currentSlide.nextElementSibling);
             }
         }
     }
