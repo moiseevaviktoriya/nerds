@@ -299,7 +299,7 @@ header, .slider {
     background-color: #efc84a;
 }
 
-.button:hover, .button:active, .social:hover {
+.button:hover, .button:active, .social:hover, .address__col-open:hover {
     color: #fff;
 }
 
@@ -415,8 +415,7 @@ header, .slider {
 }
 
 .partners__col {
-    min-width: 260px;
-    min-height: 180px;
+   width: 25%;
 }
 
 .partners__col:hover {
@@ -442,9 +441,24 @@ header, .slider {
     position: relative;
 }
 
+.address__col-open {
+    position: absolute;
+    top: 55px;
+    left: 0;
+    z-index: 500;
+    background-color: #e74246;
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+    color: #fff;
+    text-align: center;
+    line-height: 9;
+    
+}
+
 .address__col {
     position: absolute;
-    display: flex;
+    display: none;
     min-width: 318px;
     top: 55px;
     left: 0;
@@ -455,6 +469,14 @@ header, .slider {
     justify-content: center;
     flex-wrap: nowrap;
     align-items: flex-start; 
+}
+.address__col-active {
+    display: flex;
+}
+
+.address__col-close-icon {
+    top: 20px;
+    right: 20px;
 }
 
 .address__col-title {
@@ -488,8 +510,8 @@ header, .slider {
     display: flex;
     top: -141px;
     left: 100px;
-    padding: 75px 100px;
-    min-width: 850px;
+    padding: 10% 15%;
+    width: 100%;
     background-color: #fff;
     z-index: 2000;
     flex-direction: column;
@@ -506,12 +528,12 @@ header, .slider {
     flex-wrap: wrap;
 }
 .form__row-item {
-    margin: 30px 0;
-    flex-basis: 360px;
+    margin: 3% 0;
+    width: 45%;
 }
 
 .form__col-item {
-    min-width: 758px;
+    min-width: 100%;
 }
 
 .form__col-title {
@@ -550,8 +572,6 @@ input::placeholder, textarea::placeholder {
     color: #e74246;
 }
 
-
-
 .form-control:hover {
     border: 2px solid #b4b9bb;
 }
@@ -562,21 +582,24 @@ input::placeholder, textarea::placeholder {
 }
 
 .form__col-button {
-    margin-top: 50px;
+    margin-top: 5%;
     padding: 14px 80px;
 }
 
-.form__close-icon {
+.form__close-icon, .address__col-close-icon {
     position: absolute;
     display: block;
-    top: 95px;
-    right: 90px;
     width: 21px;
     height: 30px;
     color: #fecccd;
 }
 
-.form__close-icon:active {
+.form__close-icon {
+    top: 5%;
+    right: 5%;
+}
+
+.form__close-icon:active, .address__col-close-icon:active {
     color: #ffeeee;
 }
 
@@ -624,9 +647,96 @@ footer {
     color: #444444;
 }
 
+@media (max-width: 366px) {
+    .header__logo {
+        background: url(icons/nerds-logo-small.svg) 100% 100% no-repeat;
+        width: 100px;
+        height: 41px;
+    }
+    
+    .slider__title {
+        padding: 0;
+    }
+    
+    .slider__description {
+        display: none;
+    }
+    
+    .about-us__col > .about-us__row {
+        flex-wrap: nowrap !important;
+    }
+    
+    .about-us__col-small >.about-us__description {
+        font-size: 14px;
+    }
+    
+}
+
+@media (max-width: 549px) {
+    .header__row {
+        padding: 15px 0 !important;
+    }
+    
+    .services__col {
+        min-width: 100% !important;
+    }
+    
+    .services__row {
+        flex-wrap: nowrap !important;
+        overflow: hidden;
+    }
+    
+    .services__indicators {
+        display: flex !important;
+    }
+    
+    .form__col-title {
+        font-size: 25px !important;
+    }
+}
+
+@media (max-width: 575px) {
+    .row {
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+    }
+    .slider__title {
+        font-size: 20px;
+    }
+}
+@media (max-width: 550px) {
+    .about-us__title {
+        font-size: 20px;
+        padding: 0;
+        padding-bottom: 10px;
+    }
+    .about-us__works {
+        padding: 0;
+    }
+}
+
+@media (min-width: 550px) and (max-width: 767px) {
+    .services__col {
+        max-width: 150px;
+    }
+    .service__title {
+        font-size: 20px;
+    }
+    
+    .about-us__title {
+        font-size: 25px;
+        padding: 0;
+        padding-bottom: 10px;
+    }
+    .about-us__works {
+        padding: 0;
+    }
+   
+}
+
 @media (max-width: 768px) {
-    .header__row, .services {
-        padding-top: 25px;
+    .header__row {
+        padding: 25px 0;
     }
     
     .header__col.toggle {
@@ -665,15 +775,46 @@ footer {
     .slider__col:last-child {
         order: 3;
     }
+    .services {
+        padding: 60px 0;
+    }
+    .yandexmap, footer {
+        margin: 30px 0;
+    }
+    .form__row-item {
+        width: 100%;
+    }
+    textarea {
+        margin: 3% 0;
+    }
+    .form__col-title {
+        font-size: 35px;
+    }
 }
 
-@media (max-width: 575px) {
-    .row {
-        margin-right: 0 !important;
-        margin-left: 0 !important;
+@media (min-width: 768px) and (max-width: 991px) {
+    .services__col {
+        max-width: 200px;
     }
-    .slider__title {
-        font-size: 20px;
+    
+    .about-us {
+        margin-top: 20px;
+    }
+    
+    .about-us__col {
+        flex-basis: 300px;
+    }
+    
+    .about-us__title {
+        font-size: 35px;
+    }
+    
+    .about-us__row {
+        align-items: center;
+    }
+    
+    .address__col {
+        left: -50px;
     }
 }
 
@@ -697,50 +838,8 @@ footer {
     }
 }
 
-@media (min-width: 768px) and (max-width: 991px) {
-    .services__col {
-        max-width: 200px;
+@media (max-width: 1342px) {
+    .form__col {
+        left: 0;
     }
 }
-
-@media (max-width: 366px) {
-    .header__logo {
-        background: url(icons/nerds-logo-small.svg) 100% 100% no-repeat;
-        width: 100px;
-        height: 41px;
-    }
-    
-    .slider__title {
-        padding: 0;
-    }
-    
-    .slider__description {
-        display: none;
-    }
-
-}
-
-@media (min-width: 550px) and (max-width: 767px) {
-    .services__col {
-        max-width: 150px;
-    }
-    .service__title {
-        font-size: 20px;
-    }
-}
-
-@media (max-width: 549px) {
-    .services__col {
-        min-width: 100% !important;
-    }
-    
-    .services__row {
-        flex-wrap: nowrap !important;
-        overflow: hidden;
-    }
-    
-    .services__indicators {
-        display: flex !important;
-    }
-}
-
