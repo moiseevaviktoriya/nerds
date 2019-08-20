@@ -789,6 +789,10 @@ footer {
     .form__col-title {
         font-size: 35px;
     }
+    
+    .footer__title {
+        font-size: 25px;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
@@ -824,6 +828,9 @@ footer {
     
     .slider__title {
         font-size: 35px;
+    }
+    footer {
+        margin: 50px 0;
     }
 }
 
