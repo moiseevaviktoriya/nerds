@@ -218,7 +218,7 @@ button.addEventListener('click', (event) => {
     filteredProductList = [];
     features = [];
     
-    if (window.innerWidth >= '768') {
+    if (window.innerWidth <= '768') {
         toggleFilters();
     }
 });
