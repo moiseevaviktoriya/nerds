@@ -63,6 +63,16 @@ type = '',
 features = [];
 let filteredProductList = [];
 
+let toggleButton = document.querySelector('.show-filters');
+let filters = document.querySelector('.filter__col');
+
+toggleButton.addEventListener('click', toggle);
+
+function toggle() {
+    filters.classList.toggle('active__filters');
+    toggleButton.textContent === 'Показать фильтры' ? toggleButton.textContent = 'Скрыть фильтры' : toggleButton.textContent = 'Показать фильтры';
+}
+
 let radioOptions = document.getElementsByClassName('radio');
 
 
@@ -207,6 +217,10 @@ button.addEventListener('click', (event) => {
     showProducts(currentProductList);
     filteredProductList = [];
     features = [];
+    
+    if (window.innerWidth >= '768') {
+        toggle();
+    }
 });
 
 resetButton.addEventListener('click', (event) => {
