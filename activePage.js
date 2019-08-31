@@ -16,6 +16,7 @@ links[3].addEventListener('click', changeActiveLink);
 
 function changeActiveLink(e) {
     links[0].classList.remove('current__link');
+    links[2].classList.remove('current__link')
     links[1].classList.remove('current__link');
     links[3].classList.remove('current__link');
     e.target.classList.add('current__link');
