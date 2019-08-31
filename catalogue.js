@@ -66,7 +66,7 @@ let filteredProductList = [];
 let toggleButton = document.querySelector('.show-filters');
 let filters = document.querySelector('.filter__col');
 
-toggleButton.addEventListener('click', toggle);
+toggleButton.addEventListener('click', toggleFilters);
 
 function toggleFilters() {
     filters.classList.toggle('active__filters');
