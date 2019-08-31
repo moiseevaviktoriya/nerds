@@ -68,7 +68,7 @@ let filters = document.querySelector('.filter__col');
 
 toggleButton.addEventListener('click', toggle);
 
-function toggle() {
+function toggleFilters() {
     filters.classList.toggle('active__filters');
     toggleButton.textContent === 'Показать фильтры' ? toggleButton.textContent = 'Скрыть фильтры' : toggleButton.textContent = 'Показать фильтры';
 }
@@ -219,7 +219,7 @@ button.addEventListener('click', (event) => {
     features = [];
     
     if (window.innerWidth >= '768') {
-        toggle();
+        toggleFilters();
     }
 });
 
